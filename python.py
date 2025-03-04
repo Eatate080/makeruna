@@ -1,7 +1,7 @@
 import glob
 import os
 
-directory = "C:\\Users\\eitom\\OneDrive\\Desktop\\ganba" #os.path.expanduser("~/Desktop")
+directory = "" #絶対パス入力時は\\を使用してね
 
 
 files = glob.glob(f"{directory}\\*.webm")

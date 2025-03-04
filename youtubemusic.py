@@ -1,11 +1,11 @@
 import yt_dlp as youtube_dl
 from ytmusicapi import YTMusic
 import os
-import sys
+import sys #念押し
 
 def get_user_desktop_folder():
     user_folder = os.path.expanduser("~")
-    folder = os.path.join(user_folder, "OneDrive\Desktop")
+    folder = os.path.join(user_folder, "OneDrive\Desktop")#人によるが、OneDriveがない場合はDesktopのみで良い
     return folder
 
 dfolder = get_user_desktop_folder()
@@ -45,7 +45,7 @@ while continue_or_not == "0":
           else:
                print("検索結果が見つかりませんでした。")
                sys.exit()
-               
+
      elif whichchange == "u":
           url = input("URLを入力してください")
 
