@@ -8,8 +8,10 @@ os.add_dll_directory(r'C:\Program Files\VideoLAN\VLC')
 
 ytmusic = YTMusic()
 
+
+music_name = input("楽曲名またはキーワードを入力してね！")
 # 楽曲を検索して最初の結果を取得
-search_results = ytmusic.search("野獣先輩")
+search_results = ytmusic.search(music_name)
 first_result = search_results[0]
 
 # 楽曲のURLを取得
@@ -22,6 +24,7 @@ ydl_opts = {
     'noplaylist': True,
     'quiet': True,
     'extract_flat': True,
+    'outtmpl':'%(title)s.%(ext)s'
 }
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     info_dict = ydl.extract_info(youtube_url, download=False)
@@ -38,7 +41,7 @@ try:
         if state in [vlc.State.Ended, vlc.State.Error]:
             break
         # ユーザー入力を待機して再生を停止
-        user_input = input("Enter 'stop' to stop the music: ")
+        user_input = input(" 'stop'を入力してエンターを押すと再生を停止します ")
         if user_input.lower() == 'stop':
             player.stop()
             break
